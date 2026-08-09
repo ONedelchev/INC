@@ -9,6 +9,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="dbo" />
+    <Folder Include="dbo\StoredProcedures" />
     <Folder Include="dbo\Tables" />
   </ItemGroup>
   <Target Name="BeforeBuild">
