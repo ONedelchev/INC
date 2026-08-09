@@ -20,4 +20,10 @@ BEGIN
     -- 4. Insert a new row with the new values.
     INSERT INTO [dbo].[CodeInc] (BatchId, DefectID, TimeStamp)
     VALUES (@newBatchId, 0, @currentTime);
+
+    INSERT INTO [dbo].[CodeInc] (BatchId, DefectID, TimeStamp)
+    VALUES (@newBatchId, 1, @currentTime);
+
+
+
 END
