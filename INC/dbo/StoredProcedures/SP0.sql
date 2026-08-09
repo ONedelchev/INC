@@ -14,8 +14,6 @@ BEGIN
     SELECT @newBatchId = ISNULL(MAX(BatchId), 0) + 1
     FROM [dbo].[CodeInc];
 
-    -- 2. Store the new BatchId in a variable (done above).
-
     -- 3. Store the current time in a variable.
     SET @currentTime = GETDATE();
 
