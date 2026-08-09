@@ -21,7 +21,7 @@ BEGIN
     -- 3. Store the current time in a variable.
     SET @currentTime = GETDATE();
 
-    -- 4. Insert a new row with the -1 values /first the new feature/
+    -- 4. Insert a new row with the -1 values /first the new feature--/
     INSERT INTO [dbo].[CodeInc] (BatchId, DefectID, TimeStamp)
     VALUES (@newBatchId, -1, @currentTime);
         
