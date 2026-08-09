@@ -16,9 +16,6 @@ BEGIN
 
     -- 2. Store the new BatchId in a variable (done above).
 
-    -- 3. Store the current time in a variable. Using GETUTCDATE() is recommended
-    --    to avoid timezone-related issues.
-    SET @currentTime = GETUTCDATE();
     -- 3. Store the current time in a variable.
     SET @currentTime = GETDATE();
 
