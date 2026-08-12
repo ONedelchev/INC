@@ -8,22 +8,25 @@ BEGIN
     DECLARE @newBatchId BIGINT;
     DECLARE @currentTime DATETIME;
 
-    -- 1. Find the biggest BatchId from the CodeInc table and increase it by 1.
+    
+    -- 1. Store the current time in a variable.
+    SET @currentTime = GETDATE();
+    
+    -- 2. Find the biggest BatchId from the CodeInc table and increase it by 1.
     --    Using ISNULL handles the case where the table is empty, starting with 1.
     
     SELECT @newBatchId = ISNULL(MAX(BatchId), 0) + 1
     FROM [dbo].[CodeInc];
 
+    -- 2. Store the new BatchId in a variable (done above).
+
+    -- 3. Store the current time in a variable. Using GETUTCDATE() is recommended
+    --    to avoid timezone-related issues.
+    SET @currentTime = GETUTCDATE();
     -- 3. Store the current time in a variable.
     SET @currentTime = GETDATE();
 
     -- 4. Insert a new row with the new values.
     INSERT INTO [dbo].[CodeInc] (BatchId, DefectID, TimeStamp)
     VALUES (@newBatchId, 0, @currentTime);
-
-    INSERT INTO [dbo].[CodeInc] (BatchId, DefectID, TimeStamp)
-    VALUES (@newBatchId, 1, @currentTime);
-
-
-
 END
